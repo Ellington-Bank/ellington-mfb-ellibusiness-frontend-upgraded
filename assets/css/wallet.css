@@ -1,0 +1,225 @@
+.content-container > .container {
+    border: none;
+    padding: 0;
+}
+.welcome-intro.flex-div button.submit-btn{
+    width: auto;
+    font-size: 12px;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.wallet-grid {
+    display: grid;
+    grid-template-columns: calc(33.33% - 20px) calc(33.33% - 20px) calc(33.33% - 20px);
+    grid-gap: 20px;
+    margin: 35px 0 20px;
+}
+.wallet-grid-item {
+    border: 1px solid rgb(41, 41, 41, 0.11);
+    border-radius: 8px;
+    padding: 15px;
+}
+.grid-title-h.fg-1 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    color: #242F57;
+    opacity: 0.71;
+}
+.date-block {
+    border: 1.5px solid #BAD2FB;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: #BAD2FB;
+    font-size: 12px;
+    padding: 5px 10px;
+    line-height: 2;
+}
+.date-block img{
+    width: 12px;
+    position: relative;
+    top: 2px;
+}
+span.item-sub-title {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #242F57;
+    opacity: 0.5;
+}
+.balance-amt {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+    color: #0C2556;
+}
+.flex-div .balance-amt {
+    font-size: 24px;
+    line-height: 34px;
+}
+
+.download-statement-div {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 3;
+    color: #0C2556;
+    border: 1px solid var(--sec-color);
+    background: #F6F9FE;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 20px 0 10px;
+}
+.bi-pad {
+    margin: 15px 0;
+}
+.short-invoice-list {
+    margin-top: 20px;
+}
+button.download-statement-btn.submit-btn, .send-reminder-div button {
+    height: 35px;
+    font-size: 10px;
+    padding: 5px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+.send-reminder-div {
+    line-height: 3;
+}
+.gi-p{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: #242F57;
+    opacity: 0.6;
+}
+.invocie-title {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #3478E8;
+    opacity: 0.51;
+}
+.invocie-amount {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 26px;
+    color: #000000;
+}
+.invocie-item.flex-div {
+    background: #F6F9FE;
+    border: 1px solid #F6F9FE;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 10px 20px;
+}
+.see-invoice {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    left: 0;
+}
+.loan-brief-txt p {
+    opacity: 0.6;
+}
+.next-date-block {
+    background-color: #E8F0FC;
+    font-size: 8px;
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 8px;
+    line-height: 3;
+}
+.loan-brief-amt {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 42px;
+    margin-top: 10px;
+}
+.loan-brief-txt {
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    font-weight: 600;
+}
+.card-des{
+    position: relative;
+    padding: 12px 15px;
+    height: 150px;
+    border-radius: 8px;
+}
+.card-num-div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.card-num {
+    font-weight: bold;
+    font-size: 14.0367px;
+    line-height: 17px;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    text-shadow: 0px 3.30275px 6.6055px rgb(0 0 0 / 24%);
+}
+.card-sec-num {
+    font-weight: 500;
+    font-size: 9.90826px;
+    line-height: 12px;
+    letter-spacing: 0.007em;
+    color: #FFFFFF;
+    opacity: 0.7;
+}
+.card-name-div{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+.card-name {
+    font-weight: 600;
+    font-size: 9.90826px;
+    line-height: 12px;
+    letter-spacing: 0.007em;
+    color: #FFFFFF;
+    text-shadow: 0px 3.30275px 6.6055px rgb(0 0 0 / 16%);
+}
+.card-exp-date small{
+    /* width: 50px;
+    display: inline-block; */
+    font-size: 6.6055px;
+    line-height: 7px;
+    letter-spacing: 0.007em;
+    color: #FFFFFF;
+    opacity: 0.6;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.card-exp-date div {
+    font-size: 12.3853px;
+    line-height: 15px;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    text-shadow: 0px 3.30275px 6.6055px rgb(0 0 0 / 24%);
+}
+
+@media (max-width: 991px) {
+    .wallet-grid {
+        /* grid-template-columns: calc(50% - 20px) calc(50% - 20px); */
+        grid-template-columns: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .wallet-grid {
+        grid-template-columns: 100%;
+    }
+}

@@ -1,0 +1,248 @@
+.welcome-intro h4 {
+    font-size: 25px;
+    letter-spacing: -1px;
+}
+span.first_name{
+    font-family: var(--font);
+}
+.welcome-intro h4 img {
+    width: 38px;
+    padding-left: 5px;
+    position: relative;
+    top: 9px;
+}
+
+.content-container > .container {
+    border: none;
+}
+.content-container > .h-container-1 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+ul.currency-list {
+    display: flex;
+    justify-content: space-between;
+}
+.currency-list li> a {
+    background: white;
+    color: rgba(101, 126, 174, 0.85);;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.214286px;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+.currency-list li> a.active-currency {
+    background: var(--sec-color);
+    color: white;
+}
+.sub-nav {
+    display: flex;
+    justify-content: space-between;
+}
+.currency-tab {
+    padding: 0 30px;
+    box-shadow: 0px 5px 24px rgb(12 37 86 / 15%);
+    border-radius: 8px;
+}
+.tp-balance button {
+    line-height: 2;
+    background: white;
+    border: none;
+    box-shadow: 0px 5px 24px rgb(12 37 86 / 15%);
+    border-radius: 8px;
+    height: 53px;
+    margin: 0 20px;
+    padding: 0 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.tp-balance button i.material-icons {
+    position: relative;
+    top: 6px;
+    font-size: 22px;
+}
+button.dropdown-trigger {
+    background-color: white;
+    border: none;
+    box-shadow: 0px 5px 24px rgb(12 37 86 / 15%);
+    height: 53px;
+    line-height: 2;
+    border-radius: 8px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+button.dropdown-trigger i.material-icons {
+    position: relative;
+    top: 7px;
+}
+.dropdown-content li>a {
+    font-size: 14px;
+}
+
+.content-container > .h-container-2 {
+    box-shadow: 0px 5px 24px rgb(12 37 86 / 15%);
+}
+.account-detials-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 35px 25px;
+}
+.account-detials-grid .account-details-item:first-child {
+    border-right: 1px solid rgba(101, 126, 174, 0.62);;
+}
+.account-detials-grid .account-details-item:nth-child(2) {
+    padding-left: 30px;
+}
+.adi-heading {
+    font-size: 12px;
+    line-height: 15px;
+    color: #657EAE;
+}
+.adi-amount {
+    font-size: 43px;
+    line-height: 54px;
+    color: #0C2556;
+    font-weight: bold;
+    letter-spacing: -2px;
+}
+div#adi-acct-num {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -1px;
+    color: #0C2556;
+}
+.adi-bank-name {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    color: #0C2556;
+}
+.account-details-item {
+    position: relative;
+}
+.copy-paste-icon-div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.content-container > .h-container-3 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.revenue-grid {
+    display: grid;
+    grid-template-columns: calc(70% - 9px) calc(30% - 9px);
+    grid-gap: 20px;
+}
+.revenue-blocks {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-row-gap: 20px;
+}
+.revenue-graph, .r-block {
+    border: 1px solid rgba(41, 41, 41, 0.11);
+    border-radius: 8px;
+}
+.r-block {
+    padding: 20px;
+}
+.success-color{
+    color: var(--sec-color);
+}
+.fail-color{
+    color: #FF3427;
+}
+.r-tile {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #0C2556;
+    opacity: 0.51;
+}
+.r-block h4 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    color: #0C2556;
+    margin: 10px 0;
+}
+.gain-loss {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    position: relative;
+}
+.gain-loss i.material-icons {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+}
+
+.revenue-graph {
+    padding: 20px;
+}
+.rg-header {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.rg-title h5 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.rg-title span {
+    font-size: 14px;
+    line-height: 17px;
+    color: #0C2556;
+    opacity: 0.71;
+}
+button.rg-update-btn {
+    background: white;
+    border: 1px solid var(--sec-color);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--sec-color);
+    padding: 10px 25px;
+    position: relative;
+    cursor: pointer;
+}
+button.rg-update-btn.update-active {
+    color: white;
+    background-color: var(--sec-color);
+}
+button.rg-update-btn:hover {
+    color: white;
+    background-color: var(--sec-color);
+    opacity: 0.7;
+}
+button.rg-update-btn:first-child {
+    border-radius: 8px 0 0 8px;
+}
+button.rg-update-btn:last-child {
+    border-radius: 0 8px 8px 0;
+    padding-left: 40px; /* Please comment-off if caalendar icon is removed */   
+}
+.cal-white{
+    display: none;
+}
+button.rg-update-btn.update-active .cal-white{
+    display: initial;
+}
+button.rg-update-btn.update-active .cal-green{
+    display: none;
+}
+button.rg-update-btn img {
+    width: 20px;
+    position: absolute;
+    left: 10px;
+}

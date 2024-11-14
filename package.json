@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.6",
+    "datatables.net": "^2.1.8",
+    "datatables.net-dt": "^2.1.8",
+    "jquery": "^3.7.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "nuxt": "^3.14.159",
+    "vue": "latest",
+    "vue-chartkick": "^1.1.0",
+    "vue-router": "latest"
+  }
+}

@@ -1,0 +1,90 @@
+.content-container > .container.rel {
+    min-height: calc(100vh - 64px - 3em);
+}
+
+/*---=== Tab styles ===---*/
+.tab-row {
+    margin-bottom: 30px;
+}
+.tab-title {
+    margin-top: 10px;
+    color: var(--pry-txt-color);
+    /* display: none; */
+    position: absolute;
+}
+/* .active .tab-title {
+    display: block;
+} */
+ul.tabs {
+    box-shadow: 0px 5px 24px rgb(12 37 86 / 15%);
+    background: rgba(101, 126, 174, 0.34);
+    border-radius: 12px;
+    height: 50px;
+}
+.tabs .tab a {
+    color: rgba(12, 37, 86, 0.5);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 50px;
+}
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: rgba(12, 37, 86, 0.5);
+    background-color: white !important;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 50px;
+}
+
+/*---=== Component Styles ===---*/
+button.sec-bg.submit-btn {
+  min-width: 70px;
+  padding: 0 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+h5.sect-title {
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: 10px;
+}
+input.inp-field {
+  width: calc(100% - 30px) !important;
+}
+input.inp-field:focus + label {
+  color: var(--sec-color) !important;
+}
+h6.password-title {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+img.bizness-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.sect-title-header {
+    margin-bottom: 10px;
+}
+.bizness--info .sect-title-header {
+    margin-bottom: 15px;
+}
+
+.question-side b {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 36px;
+}
+.options-side label span {
+    font-weight: normal !important;
+    font-size: 16px;
+    color: var(--pry-txt-color);
+}
+.preference-block {
+    border-bottom: 1px solid #D0D7E6;
+    padding: 20px 15px !important;
+}
+.preference-block:last-child {
+    border-bottom: none;
+}

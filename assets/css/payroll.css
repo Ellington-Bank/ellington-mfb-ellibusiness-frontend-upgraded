@@ -1,0 +1,233 @@
+.content-container > .b-container {
+    border: none;
+    padding: 0;
+}
+.content-container > .pt-container {
+    margin-top: 50px;
+    position: relative;
+    border: none;
+    box-shadow: 0px 5px 24px rgba(12, 37, 86, 0.15);
+}
+.welcome-intro.flex-div button.submit-btn{
+    width: auto;
+    font-size: 12px;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.payroll-grid {
+    display: grid;
+    grid-template-columns: calc(60% - 9px) calc(40% - 9px);
+    grid-gap: 20px;
+}
+.payroll-card-block {
+    padding-right: 20px;
+}
+.payroll-balance-card {
+    height: 100%;
+    position: relative;
+    background: var(--pry-color) url(../images/payroll-card-bg.jpg) no-repeat;
+    background-size: 100% 100%;
+    border-radius: 12px;
+}
+.payroll-balance-card div.pbc1 {
+    position: absolute;
+    width: calc(100% - 30px);
+    padding-left: 30px;
+    top: 50%;
+    transform: translateY(-70%);
+    left: 0;
+}
+.payroll-acct-num {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 162.02%;
+    font-feature-settings: 'salt' on;
+    color: #EDF2F7;
+}
+h4.payroll-balance {
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 42px;
+    text-align: justify;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+}
+.payroll-card-icon {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+}
+.payroll-card-icon img {
+    width: 40px;
+}
+.payroll-list-block {
+    box-shadow: 0px 5px 24px rgba(12, 37, 86, 0.15);
+    padding: 30px;
+    border-radius: 16px;
+}
+.center.pli-title {
+    border: 1px solid #EEF0F3;
+    padding: 12px;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    /* line-height: 25px; */
+    color: #000000;
+    margin-bottom: 20px;
+}
+.payroll-list-item {
+    background: #F9FBFF;
+    border: 1px solid rgba(25, 73, 216, 0.13);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 500;
+    font-size: 12px;
+    /* line-height: 25px; */
+    letter-spacing: 0.1em;
+    display: flex;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.payroll-list-item:hover{
+    background: #eef2f8;
+}
+.payroll-list-item img {
+    margin-right: 15px;
+}
+button.payroll-load-more-btn.submit-btn {
+    height: 40px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/*--=== Payroll Table Styles ===---*/
+.payroll-table {
+    min-height: 500px;
+    position: relative;
+}
+.table-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+.empty-table-notice.center {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-60%);
+}
+.empty-img img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+.empty-notice-title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 24px;
+}
+.empty-notice-txt p {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(2, 44, 129, 0.8);
+    margin-top: 8px;
+}
+.upload-payroll-btn-div {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 72px;
+    height: 64px;
+    cursor: pointer;
+    /* overflow: hidden; */
+}
+input#upload-payroll-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+button.upload-payroll-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.upload-payroll-btn img {
+    width: 60px;
+    border-radius: 50%;
+    animation: pulse-btn 2s infinite;
+}
+div#payroll-table-loader {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(115,145,159,0.9);
+    height: 100%;
+    border-radius: 8px;
+    display: none;
+}
+img.loader-img {
+    width: 60px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes pulse-btn {
+    0% {
+    -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6);
+    }
+
+    70% {
+    -moz-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+    -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+span.tran-status {
+    color: white;
+    border-radius: 6px;
+    font-size: 10px;
+    display: block;
+    /* width: 82.5px; */
+    text-align: center;
+    padding: 6px
+}
+span.success-status {
+    background-color: #66CB9F;
+}
+span.failed-status {
+    background: rgba(255, 146, 174, 0.65);
+}
+.staff-name{
+    color: #2F80ED;
+}
+#user-table td {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+}

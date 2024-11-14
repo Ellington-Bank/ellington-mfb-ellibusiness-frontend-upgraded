@@ -1,0 +1,115 @@
+.welcome-intro.center {
+    margin-bottom: 30px;
+}
+.input-field {
+    margin: 24px 0;
+}
+.grid-split-2 {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 30px;
+}
+input.inp-field, textarea.inp-field {
+    border: 1px solid #D0D7E6 !important;
+    border-radius: 10px !important;
+    height: 48px !important;
+    padding: 0 5px !important;
+    width: calc(100% - 10px) !important;
+}
+label {
+    color: var(--pry-txt-color);
+}
+input.inp-field:focus + label, textarea.inp-field:focus + label {
+    color: var(--sec-color) !important;
+}
+.input-field>label:not(.label-icon).active {
+    transform: translateY(-18px) scale(0.8) !important;
+    transform-origin: 0 0;
+}
+.input-field>label{
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--pry-txt-color);
+    left: calc(0.75em + 10px) !important;
+    transform: translateY(15px);
+}
+.input-field>label.active{
+    font-size: 16px;
+    font-weight: 600;
+    left: 0rem !important;
+}
+[type="checkbox"]+span:not(.lever) {
+    padding-left: 25px !important;
+    line-height: 18px !important;
+}
+[type="checkbox"].filled-in:not(:checked)+span:not(.lever):after {
+    height: 18px !important;
+    width: 18px !important;
+}
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid var(--sec-color) !important;
+    background-color: var(--sec-color) !important;
+}
+[type="checkbox"].filled-in:checked+span:not(.lever):before {
+    width: 8px !important;
+    height: 11px !important;
+}
+button.submit-btn, button.cancel-btn {
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    height: 48px;
+    border-radius: 8px;
+}
+button.submit-btn:hover, button.submit-btn:focus{
+    background-color: var(--pry-color);
+}
+button.cancel-btn:hover, button.cancel-btn:focus{
+    background-color: tomato;
+    border-color: tomato !important;
+    color: white;
+}
+.field-icon {
+    float: right;
+    margin-top: -45px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    margin-right: 3px;
+}
+.form-btn-wrapper{
+    margin: 40px 0 30px;
+}
+.file-field-desc {
+    cursor: text;
+}
+.fpw {
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid #D0D7E6;
+}
+.file-field .fpw .btn {
+    background-color: var(--pry-color);
+    float: right;
+    border-radius: 21px;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    margin-top: 6px;
+    margin-right: 5px;
+}
+.input-field .fpw .btn span {
+    font-size: 10px;
+    width: 70px;
+    display: block;
+}
+
+input.file-path.validate.inp-field {
+    margin-bottom: 0;
+    border: none !important;
+}

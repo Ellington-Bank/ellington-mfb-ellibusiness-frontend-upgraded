@@ -1,0 +1,100 @@
+.grid-split-2 {
+    display: grid;
+    grid-template-columns: calc(50% - 9px) calc(50% - 9px);
+    grid-gap: 20px;
+}
+.go-back.pointer {
+    width: 35px;
+}
+.go-back.pointer:hover img {
+    animation: shake 2s 3;
+}
+.grid-split-2 > div {
+    /* padding: 20px; */
+    border: 1px solid rgba(41, 41, 41, 0.11);
+    height: 300px;
+    border-radius: 8px;
+    margin: 12px 0 30px;
+    position: relative;
+}
+.card-benefits-list {
+    position: absolute;
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 45%;
+    transform: translateY(-50%);
+}
+.card-benefit {
+    padding: 20px 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.2px;
+    display: flex;
+}
+.card-benefit img {
+    position: relative;
+    top: -2px;
+    margin-right: 20px;
+}
+.center.ocd-item {
+    height: 50%;
+    position: relative;
+}
+.center.ocd-item:first-child {
+    border-bottom: 1px solid rgba(41, 41, 41, 0.11);
+}
+.ocd-title {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: -0.2px;
+    color: rgba(12, 37, 86, 0.7);
+}
+.ocd-detail {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: -0.24px;
+    color: #0C2556;
+}
+.center.ocd-item > div {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-60%);
+}
+button.submit-btn {
+    max-width: 250px;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/*---=== Request Sent Page styles ===---*/
+.conf-req-wrapper {
+    width: 28%;
+    margin: 8% auto 20px;
+}
+.req-ht {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -0.2px;
+}
+img.req-img {
+    width: 80px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,137 @@
+.content-container > .container.rel {
+    min-height: calc(100vh - 145px - 3em);
+}
+
+.empty-notice {
+    width: 70%;
+    max-width: 650px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 48%;
+    transform: translateY(-50%);
+    margin: auto;
+}
+.empty-notice-img img {
+    width: 50%;
+    max-width: 150px;
+}
+.empty-notice-txt {
+    font-size: 15px;
+}
+.empty-notice-txt h4 {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 24px;
+    color: var(--pry-txt-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+/*---=== Tab style ===---*/
+.tab-row {
+    margin-bottom: 30px;
+}
+ul.tabs {
+    box-shadow: 0px 5px 24px rgb(12 37 86 / 15%);
+    background: white;
+    border-radius: 4px;
+    height: 50px;
+}
+.tabs .tab a {
+    color: rgba(12, 37, 86, 0.5) !important;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 50px;
+    background-color: white !important;
+}
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: rgba(12, 37, 86, 0.5);
+    background-color: white !important;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 50px;
+}
+
+.savings-grid {
+    display: grid;
+    grid-template-columns: calc(33.33% - 26px) calc(33.33% - 26px) calc(33.33% - 26px);
+    grid-gap: 32px;
+    width: 100%;
+    margin: 30px 0 20px;
+}
+.savings-grid > div {
+    border: 1px solid rgba(41, 41, 41, 0.11);
+    border-radius: 8px;
+    min-height: 190px;
+    position: relative;
+}
+.add-savings-card {
+    cursor: pointer;
+}
+.add-savings-card > div.center {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+}
+.add-savings-card > div.center > span{
+    display: block;
+}
+.savings-card {
+    background: rgba(173, 201, 89, 0.2);
+    padding: 20px;
+}
+.calendar-tag {
+    color: #617AA1;
+    background: rgba(217, 222, 202, 0.81);
+    border: 1.5px solid #EFF4DE;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 22px;
+    width: 100px;
+    text-align: center;
+    float: right;
+    position: relative;
+    padding: 5px;
+}
+.calendar-tag img{
+    position: relative;
+    top: 1.5px;
+    margin-right: 8px;
+}
+.savings-title {
+    margin-top: 80px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 12px;
+}
+.savings-amount {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.5;
+    border-right: 1px solid rgba(41, 41, 41, 0.11);
+}
+.savings-amount sup, .savings-amount small, .savings-interests h4 small {
+    /* top: -0.2em; */
+    font-size: 15px;
+    font-weight: normal;
+}
+.savings-interests {
+    width: 28%;
+    min-width: 50px;
+}
+.savings-interests h4 {
+    font-size: 45px;
+    margin: 0;
+    line-height: 1;
+}
+.savings-interests span {
+    font-size: 10px;
+    color: rgba(12, 37, 86, 0.6);
+    display: block;
+}
