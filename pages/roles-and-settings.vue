@@ -58,8 +58,8 @@ onMounted(() => {
 })
 </script>
 
-<style scoped src="../../assets/css/form-styles.css"></style>
-<style scoped src="../../assets/css/roles-settings.css"></style>
+<style scoped src="@/assets/css/form-styles.css"></style>
+<style scoped src="@/assets/css/roles-settings.css"></style>
 
 <style>
 .tabs .indicator {

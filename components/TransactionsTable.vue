@@ -43,7 +43,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import 'datatables.net'
-import 'datatables.net-dt/css/jquery.dataTables.min.css'
+// import 'datatables.net-dt/css/jquery.dataTables.min.css'
 import $ from 'jquery'
 
 const tableRef = ref(null)

@@ -36,7 +36,7 @@
 import { ref, onMounted } from 'vue'
 import 'datatables.net'
 // import 'datatables.net-dt'
-import 'datatables.net-dt/css/jquery.dataTables.css'
+// import 'datatables.net-dt/css/jquery.dataTables.css'
 
 // Sample Data (can be replaced with API data)
 const transactions = ref([

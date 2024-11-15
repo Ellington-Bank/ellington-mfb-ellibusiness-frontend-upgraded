@@ -30,16 +30,15 @@
               >
                 <div class="task-icon">
                   <img 
-                    v-if="task.progress < 100"
-                    :src="`@/assets/images/${task.icon}`" 
+                    :src="`/images/${task.icon}`" 
                     :alt="task.title"
                   >
-                  <img 
+                  <!-- <img 
                     v-else
                     src="@/assets/images/check.svg" 
                     alt="completed" 
                     class="task-complete-icon"
-                  >
+                  > -->
                 </div>
                 <div class="task-desc">
                   <NuxtLink 

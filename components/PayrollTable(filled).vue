@@ -38,7 +38,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import 'datatables.net'
-import 'datatables.net-dt/css/jquery.dataTables.css'
+// import 'datatables.net-dt/css/jquery.dataTables.css'
 
 // Sample Data (This can be replaced with API data)
 const staffList = ref([

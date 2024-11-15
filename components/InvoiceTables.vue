@@ -50,7 +50,7 @@
 <script>
 import 'datatables.net'
 import 'datatables.net-dt'
-import "datatables.net-dt/css/jquery.dataTables.min.css"
+// import "datatables.net-dt/css/jquery.dataTables.min.css"
 
 // import $ from 'jquery'
 
