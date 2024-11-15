@@ -50,7 +50,7 @@
           <div class="form-btn-wrapper">
             <div class="grid-split-2">
               <button class="sec-btn cancel-btn modal-close" type="button">Cancel</button>
-              <button class="submit-btn sec-bg modal-close" type="button" @click="handleSubmit">Done</button>
+              <button class="submit-btn sec-bg" type="button" @click="handleSubmit">Done</button>
             </div>
           </div>
         </form>
@@ -73,6 +73,8 @@ const agreedToTerms = ref(false)
 const handleSubmit = () => {
   if (agreedToTerms.value) {
     console.log('Form submitted:', { savingsName: savingsName.value, selectedPlan: selectedPlan.value, transactionPin: transactionPin.value })
+    const modal = M.Modal.getInstance(document.querySelector('#new-savings-plan'))
+    modal.close()
   } else {
     alert('You need to agree to the terms and conditions.')
   }

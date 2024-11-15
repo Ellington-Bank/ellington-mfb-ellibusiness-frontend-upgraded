@@ -266,6 +266,11 @@ const handleTransferConfirmed = async () => {
 
 .input-field span {
   font-size: 14px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+.input-field span.character-count {
+  margin: 0;
 }
 
 .amount-text {

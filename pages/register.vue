@@ -4,11 +4,12 @@
       <div class="picture-side col s12 m6 pad0">
         <div class="picture-bg"></div>
       </div>
-      <div class="icon-div">
-        <img src="@/assets/images/ellignton-pay-logo-black.png" alt="ElligntonPay">
-      </div>
+      
       <div class="form-side col s12 m6">
         <div class="auth-wrapper col s12 m8">
+          <div class="icon-div col s12">
+            <img src="@/assets/images/ellignton-pay-logo-black.png" alt="ElligntonPay">
+          </div>
           <div class="greeting-div col s12">
             <h4 class="pry-color">
               Create an Account
@@ -213,8 +214,6 @@ const handleSubmit = async () => {
 }
 </script>
 
-<style src="@/assets/css/auth.css"></style>
-
 <style scoped>
 .submit-btn {
     font-weight: 500;
@@ -222,16 +221,22 @@ const handleSubmit = async () => {
 .input-field > .input-field {
     margin: 0;
 }
-.icon-div {
+/* .icon-div {
     position: fixed;
     right: 50px;
     top: 20px;
-}
+} */
 .greeting-div h4 {
     font-size: 2.2rem;
 }
 img.greet-img {
     width: 33px;
+}
+.auth-wrapper {
+    position: relative;
+    top: auto;
+    transform: none;
+    padding-top: 50px !important;
 }
 
 /* Additional functionality styles */
@@ -257,6 +262,7 @@ img.greet-img {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    margin-top: 0;
 }
 
 button:disabled {

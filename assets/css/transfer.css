@@ -85,6 +85,7 @@ button.submit-btn {
 input.inp-field {
     font-weight: 700;
     color: #526487;
+    margin-bottom: 0;
 }
 button.submit-btn, button.cancel-btn {
     border-radius: 4px;

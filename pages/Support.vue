@@ -94,6 +94,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import M from 'materialize-css'
 import SideNav from '@/components/SideNav.vue'
 
 const formData = reactive({
@@ -165,6 +166,7 @@ const handleSubmit = async () => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000))
     console.log('Form submitted:', submitData)
+    M.toast({ html: 'Message sent successfully.', displayLength: 2000 })
     
     // Reset form
     formData.name = ''
@@ -175,6 +177,7 @@ const handleSubmit = async () => {
     
   } catch (error) {
     console.error('Submission error:', error)
+    M.toast({ html: 'Error in sending message.', displayLength: 2000 })
   } finally {
     isSubmitting.value = false
   }

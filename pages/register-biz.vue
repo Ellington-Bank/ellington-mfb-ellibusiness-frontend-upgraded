@@ -251,7 +251,6 @@ onMounted(() => {
 })
 </script>
 
-<style src="@/assets/css/auth.css"></style>
 <style src="@/assets/css/register-biz.css"></style>
 
 <style>

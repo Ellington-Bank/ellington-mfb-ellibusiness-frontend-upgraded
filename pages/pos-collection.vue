@@ -22,9 +22,10 @@
               <div class="window-form">
                 <div class="request-pos-btn-div">
                   <button 
-                    class="request-pos-btn sec-bg submit-btn"
-                    @click="handlePosRequest"
+                    class="request-pos-btn sec-bg submit-btn modal-trigger"
+                    data-target="success-modal"
                     :disabled="isRequesting"
+                    @click="handlePosRequest"
                   >
                     {{ isRequesting ? 'Processing...' : 'Request a POS' }}
                   </button>
@@ -41,25 +42,16 @@
       </div>
     </div>
 
-    <!-- Success Modal -->
-    <div 
-      class="modal-overlay"
-      v-if="showSuccessModal"
-      @click="closeModal"
-    >
-      <div 
-        class="modal-content"
-        @click.stop
-      >
+    <!-- Materialize Modal -->
+    <div id="pos-success-modal" class="modal">
+      <div class="modal-content center">
         <div class="modal-icon">
           <img src="@/assets/images/pos.svg" alt="success" class="success-icon">
         </div>
         <h3>Request Received!</h3>
         <p>We've received your POS request. Our team will contact you shortly with next steps.</p>
-        <button 
-          class="modal-close-btn sec-bg submit-btn"
-          @click="closeModal"
-        >
+
+        <button class="modal-close sec-bg submit-btn ">
           Close
         </button>
       </div>
@@ -68,27 +60,38 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import SideNav from '@/components/SideNav.vue'
+import M from 'materialize-css'
 
 const isRequesting = ref(false)
-const showSuccessModal = ref(false)
+
+onMounted(() => {
+  const modalElement = document.querySelector('#pos-success-modal')
+  M.Modal.init(modalElement, {
+    dismissible: true,
+    opacity: 0.5,
+    inDuration: 300,
+    outDuration: 200
+  })
+})
 
 const handlePosRequest = async () => {
   try {
     isRequesting.value = true
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
-    showSuccessModal.value = true
+    
+    // Open modal using Materialize
+    const modal = M.Modal.getInstance(document.querySelector('#pos-success-modal'))
+    modal.open()
+    
   } catch (error) {
     console.error('Error requesting POS:', error)
+    M.toast({ html: 'Failed to submit request', classes: 'red' })
   } finally {
     isRequesting.value = false
   }
-}
-
-const closeModal = () => {
-  showSuccessModal.value = false
 }
 </script>
 
@@ -160,29 +163,17 @@ img.title-icon {
   cursor: not-allowed;
 }
 
-/* Modal styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease;
+/* Modal styles overrides for Materialize */
+#pos-success-modal .submit-btn {
+  margin-top: 30px;
+}
+.modal {
+  max-width: 400px;
+  border-radius: 12px;
 }
 
-.modal-content {
-  background: white;
+.modal .modal-content {
   padding: 2rem;
-  border-radius: 12px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  animation: slideIn 0.3s ease;
 }
 
 .modal-icon {
@@ -193,34 +184,25 @@ img.title-icon {
   width: 60px;
 }
 
-.modal-content h3 {
+.modal h3 {
   margin-bottom: 1rem;
   color: var(--pry-color);
+  font-size: 1.5rem;
 }
 
-.modal-content p {
+.modal p {
   margin-bottom: 1.5rem;
   line-height: 1.5;
   color: #666;
 }
 
-.modal-close-btn {
-  min-width: 120px;
+.modal .modal-footer {
+  text-align: center;
+  padding: 1rem;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.modal .modal-footer .btn-flat {
+  float: none;
+  margin: 0 auto;
 }
 </style>

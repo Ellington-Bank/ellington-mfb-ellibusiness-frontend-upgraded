@@ -36,6 +36,7 @@ export default defineNuxtConfig({
     "materialize-css/dist/css/materialize.min.css",
     "@/assets/css/fonts.css",
     "@/assets/css/style.css",
+    "@/assets/css/auth.css",
   ],
 
   components: [

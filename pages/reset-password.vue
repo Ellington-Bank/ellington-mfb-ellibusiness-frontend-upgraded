@@ -105,8 +105,6 @@ const handleSubmit = async () => {
 }
 </script>
 
-<style src="@/assets/css/auth.css"></style>
-
 <style scoped>
 img.greet-img {
   width: 25px;

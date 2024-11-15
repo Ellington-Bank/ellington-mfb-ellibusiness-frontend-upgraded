@@ -209,6 +209,13 @@ const requestGoLive = async () => {
   background-color: #f9f9f9;
 }
 
+a.task-title {
+  color: var(--pry-color);
+}
+.completed a.task-title {
+    color: var(--sec-color);
+}
+
 .task-title h5 {
   cursor: pointer;
   transition: color 0.3s ease;
@@ -227,10 +234,19 @@ const requestGoLive = async () => {
   cursor: not-allowed;
 }
 
-.go-live-btn {
+/* .go-live-btn {
   transition: all 0.3s ease;
   padding: 12px 24px;
   border-radius: 4px;
+} */
+.go-live-btn {
+    background-color: var(--sec-color);
+    cursor: pointer;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 500;
+    color: white;
+    transition: all 0.3s ease;
 }
 
 .go-live-btn:not(:disabled) {
@@ -239,7 +255,7 @@ const requestGoLive = async () => {
 }
 
 .go-live-btn:disabled {
-  opacity: 0.5;
+  background: #D0D7E6;
   cursor: not-allowed;
 }
 

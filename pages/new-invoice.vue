@@ -17,7 +17,7 @@
                     <div class="fpw">
                       <span>
                         <img 
-                          :src="logoPreview || '@/assets/images/select-logo-file.png'" 
+                          :src="logoPreview || '/images/select-logo-file.png'" 
                           alt="select-file" 
                           class="select-file-img"
                           @click="triggerFileInput"

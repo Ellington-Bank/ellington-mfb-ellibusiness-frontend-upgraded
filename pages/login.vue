@@ -13,7 +13,7 @@
             <h4 class="pry-color">
               Welcome Back!
               <img 
-                :src="isNightTime ? '@/assets/images/half-moon1.svg' : '@/assets/images/sun-icon.svg'" 
+                :src="isNightTime ? '/images/half-moon1.svg' : '/images/sun-icon.svg'" 
                 :alt="isNightTime ? 'night' : 'morning'" 
                 class="greet-img"
               >
@@ -207,8 +207,6 @@ const handleSubmit = async () => {
 }
 </script>
 
-<style src="@/assets/css/auth.css"></style>
-
 <style scoped>
 .hidden {
   display: none;
@@ -230,8 +228,9 @@ const handleSubmit = async () => {
   cursor: pointer;
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
+  margin-top: 0;
 }
 
 .input-field {

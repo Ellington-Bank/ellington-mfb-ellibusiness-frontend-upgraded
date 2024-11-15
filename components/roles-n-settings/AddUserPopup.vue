@@ -19,10 +19,10 @@
             </div>
             <div class="input-field">
               <select id="user-role" v-model="userRole">
-                <option value="1">Owner</option>
-                <option value="2">Administrator</option>
-                <option value="3">Developer</option>
-                <option value="4">Guest</option>
+                <option value="Owner">Owner</option>
+                <option value="Administrator">Administrator</option>
+                <option value="Developer">Developer</option>
+                <option value="Guest">Guest</option>
               </select>
               <label for="user-role">Role</label>
             </div>
@@ -56,6 +56,9 @@ const handleInviteUser = () => {
     userEmail.value = ''
     userRole.value = '1'
     M.toast({ html: 'User invited successfully!', displayLength: 2000 })
+    
+    const modal = M.Modal.getInstance(document.querySelector('#add-user-modal'))
+    modal.close()
   } else {
     M.toast({ html: 'Please fill in all fields.', displayLength: 2000 })
   }

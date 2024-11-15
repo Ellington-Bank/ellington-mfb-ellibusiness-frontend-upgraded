@@ -65,7 +65,7 @@
                     </span>
                   </div>
 
-                  <div class="input-field mag0">
+                  <div class="input-field checkbox-field">
                     <p class="mag0">
                       <label>
                         <input 
@@ -135,8 +135,83 @@ const errors = reactive({
 
 const amountInWords = computed(() => {
   if (!formData.amount) return ''
-  // Add your number to words conversion logic here
-  return `${formData.amount} Naira only`
+  
+  const numberToWords = (num) => {
+    const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine']
+    const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']
+    const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen']
+    
+    const convertLessThanThousand = (n) => {
+      if (n === 0) return ''
+      
+      let result = ''
+      
+      // Handle hundreds
+      if (n >= 100) {
+        result += ones[Math.floor(n / 100)] + ' Hundred'
+        if (n % 100 !== 0) result += ' and '
+      }
+      
+      // Handle tens and ones
+      const twoDigits = n % 100
+      if (twoDigits >= 10 && twoDigits < 20) {
+        result += teens[twoDigits - 10]
+      } else {
+        result += tens[Math.floor(twoDigits / 10)]
+        if (result !== '' && twoDigits % 10 !== 0) result += '-'
+        result += ones[twoDigits % 10]
+      }
+      
+      return result
+    }
+    
+    if (num === 0) return 'Zero'
+    
+    const billion = Math.floor(num / 1000000000)
+    num %= 1000000000
+    const million = Math.floor(num / 1000000)
+    num %= 1000000
+    const thousand = Math.floor(num / 1000)
+    const remainder = num % 1000
+    
+    let result = ''
+    
+    if (billion) {
+      result += convertLessThanThousand(billion) + ' Billion'
+      if (million || thousand || remainder) result += ', '
+    }
+    
+    if (million) {
+      result += convertLessThanThousand(million) + ' Million'
+      if (thousand || remainder) result += ', '
+    }
+    
+    if (thousand) {
+      result += convertLessThanThousand(thousand) + ' Thousand'
+      if (remainder) result += ', '
+    }
+    
+    if (remainder) {
+      result += convertLessThanThousand(remainder)
+    }
+    
+    // Handle decimal part
+    const amount = formData.amount.toString()
+    const decimalPart = amount.includes('.') ? amount.split('.')[1] : '00'
+    const kobo = parseInt(decimalPart.padEnd(2, '0').slice(0, 2))
+    
+    return `${result} Naira${kobo > 0 ? ` and ${convertLessThanThousand(kobo)} Kobo` : ''} Only`
+  }
+  
+  try {
+    const amount = parseFloat(formData.amount)
+    if (isNaN(amount)) return ''
+    if (amount > 999999999999) return 'Amount too large'
+    return numberToWords(Math.floor(amount))
+  } catch (error) {
+    console.error('Error converting amount to words:', error)
+    return ''
+  }
 })
 
 const hasErrors = computed(() => {
@@ -247,6 +322,15 @@ const handleTransferConfirmed = async () => {
 
 .input-field span {
   font-size: 14px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+.input-field span.character-count {
+  margin: 0;
+}
+.checkbox-field {
+  margin: 0;
+  margin-top: 30px;
 }
 
 /* Additional styles */

@@ -71,6 +71,17 @@ onMounted(() => {
 .tabs .indicator {
     background-color: var(--sec-color) !important;
 }
+.select-wrapper input.select-dropdown {
+    border: 1px solid #D0D7E6 !important;
+    border-radius: 10px !important;
+    height: 48px !important;
+    padding: 0 5px !important;
+    width: calc(100% - 10px) !important;
+    color: rgba(0, 0, 0, 0.6);
+}
+.dropdown-content li>a, .dropdown-content li>span {
+    color: var(--pry-color) !important;
+}
 </style>
 
 <style scoped>
