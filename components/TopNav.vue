@@ -33,10 +33,8 @@
                 </label>
               </div>
             </li>
-            <li>
-              <NuxtLink to="/login" class="logout-btn">
-                <span>Logout</span>
-              </NuxtLink>
+            <li  v-if="authenticated">
+              <nuxt-link @click="logout" class="logout-btn">Logout</nuxt-link>
             </li>
           </ul>
         </div>
@@ -45,9 +43,32 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">  
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '~/store/auth';
+
+const router = useRouter();
+
 export default {
-  name: 'TopNav'
+    name: 'TopNav',
+
+   /* data() {
+      return {authenticated: authenticated}
+    }*/
+    setup() {
+          const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive
+          const { logUserOut } = useAuthStore();
+          const logout = function(){
+                            logUserOut()
+                            console.log("got here ....")
+                            router.push('/login');
+                         } 
+          return {
+            authenticated: authenticated,
+            logout: logout
+          }
+     }
+
 }
 </script>
 

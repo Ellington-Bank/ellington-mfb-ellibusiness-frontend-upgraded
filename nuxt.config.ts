@@ -28,8 +28,21 @@ export default defineNuxtConfig({
 
   build: {},
 
-  modules: [],
-
+  modules:[
+            ['@pinia/nuxt', 
+              { 
+                  autoImports: ['defineStore']
+              }
+            ]
+        ],
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.API_BASE_URL || 'http://localhost:3006/api/v1',
+    },
+  },
+ /* http: {
+    baseURL: 'http://localhost:3006/api/v1'
+  },*/
   plugins: [],
 
   css: [
@@ -46,7 +59,7 @@ export default defineNuxtConfig({
     },
   ],
 
-  runtimeConfig: {},
+
 
   compatibilityDate: "2024-04-03",
 

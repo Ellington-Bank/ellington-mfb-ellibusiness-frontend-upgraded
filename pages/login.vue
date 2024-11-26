@@ -117,6 +117,16 @@
 <script setup>
 import { ref, reactive, computed } from 'vue'
 
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '~/store/auth';
+
+
+const { authenticateUser } = useAuthStore(); // use auth store
+const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive
+
+
+const router = useRouter();
+
 const formData = reactive({
   email: '',
   password: '',
@@ -192,15 +202,20 @@ const handleSubmit = async () => {
       rememberMe: formData.rememberMe
     })
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
+
+     await authenticateUser({email: formData.email, password: formData.password});
+          // redirect to homepage if user is authenticated
+     if (authenticated) {
+         router.push('/');
+     };
+
     // Handle successful login
     // You might want to use useRouter() here to redirect
     
   } catch (error) {
     console.error('Login error:', error)
     // Handle login error
+    alert('Login failed');
   } finally {
     isSubmitting.value = false
   }

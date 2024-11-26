@@ -58,6 +58,18 @@
               </div>
               <div class="input-field col s12 pad0">
                 <input 
+                  id="phoneNumber" 
+                  type="text" 
+                  class="inp-field"
+                  v-model="formData.phoneNumber"
+                  :class="{ 'has-error': errors.email }"
+                  @blur="validateField('phoneNumber')"
+                >
+                <label for="email">PHONE NUMBER</label>
+                <span v-if="errors.email" class="error-message">{{ errors.phoneNumber }}</span>
+              </div>
+              <div class="input-field col s12 pad0">
+                <input 
                   id="password" 
                   :type="showPassword ? 'text' : 'password'"
                   class="inp-field"
@@ -122,13 +134,14 @@
   </section>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue'
 
 const formData = reactive({
   firstName: '',
   lastName: '',
   email: '',
+  phoneNumber: '',
   password: '',
   confirmPassword: ''
 })
@@ -138,7 +151,8 @@ const errors = reactive({
   lastName: '',
   email: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
+  phoneNumber: ''
 })
 
 const isSubmitting = ref(false)
@@ -146,7 +160,7 @@ const showPassword = ref(false)
 const showConfirmPassword = ref(false)
 
 const validateField = (field) => {
-  errors[field] = ''
+  errors[field]  = ''
   
   switch (field) {
     case 'firstName':
@@ -161,6 +175,13 @@ const validateField = (field) => {
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
         errors.email = 'Please enter a valid email'
       }
+      break
+    case 'phoneNumber':
+      if (!formData.phoneNumber) {
+        errors.phoneNumber = 'PhoneNumber is required'
+      } /*else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        errors.email = 'Please enter a valid email'
+      }*/
       break
     case 'password':
       if (!formData.password) {
@@ -183,6 +204,7 @@ const validateForm = () => {
   validateField('firstName')
   validateField('lastName')
   validateField('email')
+  validateField('phoneNumber')
   validateField('password')
   validateField('confirmPassword')
   return !Object.values(errors).some(error => error)
@@ -199,12 +221,23 @@ const handleSubmit = async () => {
     isSubmitting.value = true
     // Here you would typically make an API call to register the user
     console.log('Form submitted:', formData)
+    formData.name = formData.firstName + " " + formData.lastName;
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000))
+
+    formData.gender = 'Male';
+    const { data, pending }: any = await useFetch('http://localhost:3006/api/v1/user/create', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: formData
+      });
+
+      console.log("xxxx",data.value);
     
     // Navigate to next step
-    navigateTo('/register-biz')
+    navigateTo('/login')
+    //navigateTo('/register-biz')
     
   } catch (error) {
     console.error('Registration error:', error)
