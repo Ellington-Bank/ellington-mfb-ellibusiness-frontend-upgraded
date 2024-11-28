@@ -202,8 +202,6 @@ const errors = reactive({
 
 const isSubmitting = ref(false)
 
-
-
 const countries = [
   { value: '1', label: 'Nigeria' },
   { value: '2', label: 'Ghana' },
