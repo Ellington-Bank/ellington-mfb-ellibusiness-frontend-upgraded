@@ -60,8 +60,9 @@ export default {
           const { logUserOut } = useAuthStore();
           const logout = function(){
                             logUserOut()
-                            console.log("got here ....")
-                            router.push('/login');
+                            console.log("got here ....");
+                            navigateTo('login');
+                           // router.push('/login');
                          } 
           return {
             authenticated: authenticated,

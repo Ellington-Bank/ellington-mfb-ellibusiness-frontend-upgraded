@@ -19,6 +19,7 @@
             <form @submit.prevent="handleSubmit">
               <div class="input-field col s12 pad0">
                 <div class="input-field col s12 m6 pad0-left">
+                  <p style="font-size: 12px;" for="biz_name">Business/Company Name</p>
                   <input
                       id="biz_name"
                       type="text"
@@ -27,7 +28,6 @@
                       :class="{ 'has-error': errors.businessName }"
                       @blur="validateField('businessName')"
                   >
-                  <label for="biz_name">Business/Company Name</label>
                   <span v-if="errors.businessName" class="error-message">{{ errors.businessName }}</span>
                 </div>
                 <div class="input-field col s12 m6 pad0-right">
@@ -46,14 +46,14 @@
                 <div class="col s12 pad0">
                   <div
                       class="project-type col s12 m10"
-                      :class="{ 'selected': formData.businessType === 'Individual' }"
+                      :class="{ 'selected': formData.businessType === '0' }"
                   >
                     <div class="checkbox">
                       <input
                           type="radio"
                           id="individual-biz"
                           name="type-of-biz"
-                          value="Individual"
+                          value="0"
                           v-model="formData.businessType"
                       >
                       <label for="individual-biz" class="radio-div">
@@ -71,14 +71,14 @@
                 <div class="col s12 pad0">
                   <div
                       class="project-type col s12 m10"
-                      :class="{ 'selected': formData.businessType === 'Registered' }"
+                      :class="{ 'selected': formData.businessType === '1' }"
                   >
                     <div class="checkbox">
                       <input
                           type="radio"
                           id="registered-biz"
                           name="type-of-biz"
-                          value="Registered"
+                          value="1"
                           v-model="formData.businessType"
                       >
                       <label for="registered-biz" class="radio-div">
@@ -180,8 +180,18 @@
   </section>
 </template>
 
-<script setup>
-import { ref, reactive, onMounted } from 'vue'
+<script lang="ts" setup>
+import { ref, reactive, onMounted } from 'vue';
+
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '~/store/auth';
+
+const { authenticated, profile } = storeToRefs(useAuthStore()); // make authenticated state reactive
+//const { profile } = useAuthStore();
+
+const apiBaseUrl = import.meta.env.VITE_API_URL;
+//console.log("API_BASE_URL",apiBaseUrl);
+console.log(profile);
 
 const formData = reactive({
   businessName: '',
@@ -248,10 +258,21 @@ const handleSubmit = async () => {
   if (!validateForm()) return
 
   try {
-    isSubmitting.value = true
-    console.log('Form submitted:', formData)
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    isSubmitting.value = true;
+    console.log('Form submitted:', formData);
+   // await new Promise(resolve => setTimeout(resolve, 1000))
     // Handle successful submission
+    formData.name = formData.businessName;
+    const { data, pending }: any = await useFetch(`${apiBaseUrl}business`, {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: formData
+      });
+
+      if(data.value){
+         alert("Business successfuly registred!");
+         navigateTo('login');
+      }
   } catch (error) {
     console.error('Submission error:', error)
   } finally {

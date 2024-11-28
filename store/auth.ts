@@ -9,6 +9,8 @@ export const useAuthStore = defineStore('auth', {
   state: () => ({
     authenticated: false,
     loading: false,
+    userDetails: null,
+    profile: null
   }),
   actions: {
     async authenticateUser({ email, password }: UserPayloadInterface) {
@@ -29,8 +31,10 @@ export const useAuthStore = defineStore('auth', {
 
       if (data.value) {
         const token = useCookie('token'); // useCookie new hook in nuxt 3
-        token.value = data?.value?.access_token; // set token to cookie
+        token.value = data?.value; // set token to cookie
         this.authenticated = true; // set authenticated  state value to true
+        this.userDetails = data?.value?.profile;
+        this.profile = data?.value?.profile;
       }
     },
     logUserOut() {
@@ -38,5 +42,8 @@ export const useAuthStore = defineStore('auth', {
       this.authenticated = false; // set authenticated  state value to false
       token.value = null; // clear the token cookie
     },
+    getUserDetails(){
+      return this.userDetails;
+    }
   },
 });
