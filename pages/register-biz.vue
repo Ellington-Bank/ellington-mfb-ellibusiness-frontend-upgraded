@@ -111,7 +111,7 @@
                     </option>
 
                   </select>
-                  <label for="country-base">What country are you based in?</label>
+                  <label for="country-base">What country are you based in? </label>
                   <span v-if="errors.country" class="error-message">{{ errors.country }}</span>
                 </div>
                 <div class="input-field col s12 m6 pad0-right">
@@ -257,7 +257,15 @@ const handleSubmit = async () => {
 
 onMounted(() => {
   // Initialize selects if needed
-})
+
+});
+
+/*data(()=> {
+  return {
+    countries
+  }
+})*/
+
 </script>
 
 <style src="@/assets/css/register-biz.css"></style>
