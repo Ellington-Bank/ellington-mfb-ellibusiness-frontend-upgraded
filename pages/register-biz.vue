@@ -4,9 +4,9 @@
       <div class="picture-side col s12 m6 pad0">
         <div class="picture-bg"></div>
       </div>
-      <div class="icon-div">
-        <img src="@/assets/images/ellignton-pay-logo-black.png" alt="ElligntonPay">
-      </div>
+<!--      <div class="icon-div">-->
+<!--        <img src="@/assets/images/ellignton-pay-logo-black.png" alt="ElligntonPay">-->
+<!--      </div>-->
       <div class="form-side col s12 m6">
         <div class="auth-wrapper col s12 m11">
           <div class="greeting-div col s12">
@@ -19,9 +19,9 @@
             <form @submit.prevent="handleSubmit">
               <div class="input-field col s12 pad0">
                 <div class="input-field col s12 m6 pad0-left">
-                  <input 
-                    id="biz_name" 
-                    type="text" 
+                  <input
+                    id="biz_name"
+                    type="text"
                     class="inp-field"
                     v-model="formData.businessName"
                     :class="{ 'has-error': errors.businessName }"
@@ -34,7 +34,7 @@
                   <div class="form-notice">
                     <img src="@/assets/images/alert(fill).svg" alt="alert" /> <br />
                     <span>
-                      If your business is registered, please ensure that the business 
+                      If your business is registered, please ensure that the business
                       name provided is the same name on your registration documents.
                     </span>
                   </div>
@@ -44,15 +44,15 @@
               <div class="input-field col s12 pad0">
                 <div class="fs-title">What type of business do you run?</div>
                 <div class="col s12 pad0">
-                  <div 
+                  <div
                     class="project-type col s12 m10"
                     :class="{ 'selected': formData.businessType === 'Individual' }"
                   >
                     <div class="checkbox">
-                      <input 
-                        type="radio" 
-                        id="individual-biz" 
-                        name="type-of-biz" 
+                      <input
+                        type="radio"
+                        id="individual-biz"
+                        name="type-of-biz"
                         value="Individual"
                         v-model="formData.businessType"
                       >
@@ -69,15 +69,15 @@
                   </div>
                 </div>
                 <div class="col s12 pad0">
-                  <div 
+                  <div
                     class="project-type col s12 m10"
                     :class="{ 'selected': formData.businessType === 'Registered' }"
                   >
                     <div class="checkbox">
-                      <input 
-                        type="radio" 
-                        id="registered-biz" 
-                        name="type-of-biz" 
+                      <input
+                        type="radio"
+                        id="registered-biz"
+                        name="type-of-biz"
                         value="Registered"
                         v-model="formData.businessType"
                       >
@@ -96,11 +96,11 @@
                 <span v-if="errors.businessType" class="error-message">{{ errors.businessType }}</span>
               </div>
 
-              <div class="input-field col s12"></div>
 
               <div class="input-field col s12 pad0">
                 <div class="input-field col s12 m6 pad0-left">
-                  <select 
+
+                  <select
                     id="country-base"
                     v-model="formData.country"
                     @blur="validateField('country')"
@@ -109,12 +109,14 @@
                     <option v-for="country in countries" :key="country.value" :value="country.value">
                       {{ country.label }}
                     </option>
+
                   </select>
                   <label for="country-base">What country are you based in?</label>
                   <span v-if="errors.country" class="error-message">{{ errors.country }}</span>
                 </div>
                 <div class="input-field col s12 m6 pad0-right">
-                  <select 
+
+                  <select
                     id="business-size"
                     v-model="formData.businessSize"
                     @blur="validateField('businessSize')"
@@ -131,7 +133,7 @@
 
               <div class="input-field col s12 pad0">
                 <div class="input-field col s12 m6 pad0-left">
-                  <select 
+                  <select
                     id="are-u-a-dev"
                     v-model="formData.isDeveloper"
                   >
@@ -141,9 +143,9 @@
                   <label for="are-u-a-dev">Are you a software developer?</label>
                 </div>
                 <div class="input-field col s12 m6 pad0-right">
-                  <input 
-                    id="referral" 
-                    type="text" 
+                  <input
+                    id="referral"
+                    type="text"
                     class="inp-field"
                     v-model="formData.referralCode"
                   >
@@ -152,8 +154,8 @@
               </div>
 
               <div class="button-div col s12 pad0 m8 offset-m2">
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   class="submit-btn sec-bg"
                   :disabled="isSubmitting"
                 >
@@ -187,7 +189,10 @@ const errors = reactive({
   businessSize: ''
 })
 
+
 const isSubmitting = ref(false)
+
+
 
 const countries = [
   { value: '1', label: 'Nigeria' },
@@ -206,7 +211,7 @@ const businessSizes = [
 
 const validateField = (field) => {
   errors[field] = ''
-  
+
   switch (field) {
     case 'businessName':
       if (!formData.businessName) errors.businessName = 'Business name is required'
@@ -223,6 +228,10 @@ const validateField = (field) => {
   }
 }
 
+const onChangeStore = () => {
+  console.log(this.riot_account_store);
+}
+
 const validateForm = () => {
   validateField('businessName')
   validateField('businessType')
@@ -233,7 +242,7 @@ const validateForm = () => {
 
 const handleSubmit = async () => {
   if (!validateForm()) return
-  
+
   try {
     isSubmitting.value = true
     console.log('Form submitted:', formData)
