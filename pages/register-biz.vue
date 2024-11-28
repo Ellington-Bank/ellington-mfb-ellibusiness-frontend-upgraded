@@ -151,13 +151,15 @@
 
                 </div>
                 <div class="input-field col s12 m6 pad0-right">
+                  <p>
+                    <label for="referral">Referral Code</label>
+                  </p>
                   <input
                       id="referral"
                       type="text"
                       class="inp-field"
                       v-model="formData.referralCode"
                   >
-                  <label for="referral">Referral Code</label>
                 </div>
               </div>
 
