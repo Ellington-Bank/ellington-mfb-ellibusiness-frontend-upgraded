@@ -4,9 +4,9 @@
       <div class="picture-side col s12 m6 pad0">
         <div class="picture-bg"></div>
       </div>
-<!--      <div class="icon-div">-->
-<!--        <img src="@/assets/images/ellignton-pay-logo-black.png" alt="ElligntonPay">-->
-<!--      </div>-->
+      <!--      <div class="icon-div">-->
+      <!--        <img src="@/assets/images/ellignton-pay-logo-black.png" alt="ElligntonPay">-->
+      <!--      </div>-->
       <div class="form-side col s12 m6">
         <div class="auth-wrapper col s12 m11">
           <div class="greeting-div col s12">
@@ -20,12 +20,12 @@
               <div class="input-field col s12 pad0">
                 <div class="input-field col s12 m6 pad0-left">
                   <input
-                    id="biz_name"
-                    type="text"
-                    class="inp-field"
-                    v-model="formData.businessName"
-                    :class="{ 'has-error': errors.businessName }"
-                    @blur="validateField('businessName')"
+                      id="biz_name"
+                      type="text"
+                      class="inp-field"
+                      v-model="formData.businessName"
+                      :class="{ 'has-error': errors.businessName }"
+                      @blur="validateField('businessName')"
                   >
                   <label for="biz_name">Business/Company Name</label>
                   <span v-if="errors.businessName" class="error-message">{{ errors.businessName }}</span>
@@ -45,16 +45,16 @@
                 <div class="fs-title">What type of business do you run?</div>
                 <div class="col s12 pad0">
                   <div
-                    class="project-type col s12 m10"
-                    :class="{ 'selected': formData.businessType === 'Individual' }"
+                      class="project-type col s12 m10"
+                      :class="{ 'selected': formData.businessType === 'Individual' }"
                   >
                     <div class="checkbox">
                       <input
-                        type="radio"
-                        id="individual-biz"
-                        name="type-of-biz"
-                        value="Individual"
-                        v-model="formData.businessType"
+                          type="radio"
+                          id="individual-biz"
+                          name="type-of-biz"
+                          value="Individual"
+                          v-model="formData.businessType"
                       >
                       <label for="individual-biz" class="radio-div">
                         <div class="radio-img-icon">
@@ -70,16 +70,16 @@
                 </div>
                 <div class="col s12 pad0">
                   <div
-                    class="project-type col s12 m10"
-                    :class="{ 'selected': formData.businessType === 'Registered' }"
+                      class="project-type col s12 m10"
+                      :class="{ 'selected': formData.businessType === 'Registered' }"
                   >
                     <div class="checkbox">
                       <input
-                        type="radio"
-                        id="registered-biz"
-                        name="type-of-biz"
-                        value="Registered"
-                        v-model="formData.businessType"
+                          type="radio"
+                          id="registered-biz"
+                          name="type-of-biz"
+                          value="Registered"
+                          v-model="formData.businessType"
                       >
                       <label for="registered-biz" class="radio-div">
                         <div class="radio-img-icon">
@@ -99,11 +99,13 @@
 
               <div class="input-field col s12 pad0">
                 <div class="input-field col s12 m6 pad0-left">
-
-                  <select
-                    id="country-base"
-                    v-model="formData.country"
-                    @blur="validateField('country')"
+                  <p>
+                    <label for="country-base">What country are you based in?</label>
+                  </p>
+                  <select style="display:inline-block"
+                      id="country-base"
+                      v-model="formData.country"
+                      @blur="validateField('country')"
                   >
                     <option value="" disabled>Select country</option>
                     <option v-for="country in countries" :key="country.value" :value="country.value">
@@ -111,53 +113,61 @@
                     </option>
 
                   </select>
-                  <label for="country-base">What country are you based in? </label>
+
                   <span v-if="errors.country" class="error-message">{{ errors.country }}</span>
                 </div>
-                <div class="input-field col s12 m6 pad0-right">
 
-                  <select
-                    id="business-size"
-                    v-model="formData.businessSize"
-                    @blur="validateField('businessSize')"
+                <div class="input-field col s12 m6 pad0-right">
+                  <p>
+                    <label for="business-size">Business Size</label>
+                  </p>
+                  <select style="display:inline-block"
+                      id="business-size"
+                      v-model="formData.businessSize"
+                      @blur="validateField('businessSize')"
                   >
                     <option value="" disabled>Select size</option>
                     <option v-for="size in businessSizes" :key="size.value" :value="size.value">
                       {{ size.label }}
                     </option>
                   </select>
-                  <label for="business-size">Business Size</label>
                   <span v-if="errors.businessSize" class="error-message">{{ errors.businessSize }}</span>
                 </div>
               </div>
 
+
               <div class="input-field col s12 pad0">
                 <div class="input-field col s12 m6 pad0-left">
-                  <select
-                    id="are-u-a-dev"
-                    v-model="formData.isDeveloper"
+                  <p>
+                    <label for="are-u-a-dev">Are you a software developer?</label>
+                  </p>
+                  <select style="display:inline-block"
+                      id="are-u-a-dev"
+                      v-model="formData.isDeveloper"
                   >
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                   </select>
-                  <label for="are-u-a-dev">Are you a software developer?</label>
+
                 </div>
                 <div class="input-field col s12 m6 pad0-right">
+                  <p>
+                    <label for="referral">Referral Code</label>
+                  </p>
                   <input
-                    id="referral"
-                    type="text"
-                    class="inp-field"
-                    v-model="formData.referralCode"
+                      id="referral"
+                      type="text"
+                      class="inp-field"
+                      v-model="formData.referralCode"
                   >
-                  <label for="referral">Referral Code</label>
                 </div>
               </div>
 
               <div class="button-div col s12 pad0 m8 offset-m2">
                 <button
-                  type="submit"
-                  class="submit-btn sec-bg"
-                  :disabled="isSubmitting"
+                    type="submit"
+                    class="submit-btn sec-bg"
+                    :disabled="isSubmitting"
                 >
                   {{ isSubmitting ? 'SUBMITTING...' : 'SUBMIT' }}
                 </button>
@@ -228,10 +238,6 @@ const validateField = (field) => {
   }
 }
 
-const onChangeStore = () => {
-  console.log(this.riot_account_store);
-}
-
 const validateForm = () => {
   validateField('businessName')
   validateField('businessType')
@@ -272,74 +278,77 @@ onMounted(() => {
 
 <style>
 .dropdown-content li>a, .dropdown-content li>span{
-    color: var(--pry-color) !important;
+  color: var(--pry-color) !important;
 }
 .select-wrapper input.select-dropdown {
-    border: 1px solid #D0D7E6 !important;
-    border-radius: 10px !important;
-    height: 48px !important;
-    padding: 0 5px !important;
-    width: calc(100% - 10px) !important;
+  border: 1px solid #D0D7E6 !important;
+  border-radius: 10px !important;
+  height: 48px !important;
+  padding: 0 5px !important;
+  width: calc(100% - 10px) !important;
 }
 .input-field.col>.select-wrapper+label{
-    top: -34px;
-    font-size: 13px;
-    font-weight: 500;
+  top: -34px;
+  font-size: 13px;
+  font-weight: 500;
 }
 .input-field.pad0-right.col>.select-wrapper+label, .input-field.pad0-right.col>label.active{
-    left: 0.75rem !important;
+  left: 0.75rem !important;
 }
 .input-field.pad0-left.col>.select-wrapper+label {
-    left: 0 !important;
+  left: 0 !important;
+}
+select.browser-default {
+  display: block;
 }
 
 /* Additional styles for functionality */
 .error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 4px;
-    display: block;
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
 }
 
 .has-error {
-    border-color: red !important;
-    box-shadow: 0 1px 0 0 red !important;
+  border-color: red !important;
+  box-shadow: 0 1px 0 0 red !important;
 }
 
 button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 </style>
 
 <style scoped>
 .submit-btn {
-    font-weight: 500;
+  font-weight: 500;
 }
 .input-field > .input-field {
-    margin: 0;
+  margin: 0;
 }
 .icon-div {
-    position: fixed;
-    right: 50px;
-    top: 20px;
+  position: fixed;
+  right: 50px;
+  top: 20px;
 }
 .greeting-div h4 {
-    font-size: 2.2rem;
+  font-size: 2.2rem;
 }
 img.greet-img {
-    width: 33px;
+  width: 33px;
 }
 .auth-wrapper {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .form-notice {
-    font-size: 11px;
-    line-height: 1.3;
-    background-color: #F8F9FA;
-    padding: 9px;
-    border-radius: 6px;
-    margin-top: -15px;
+  font-size: 11px;
+  line-height: 1.3;
+  background-color: #F8F9FA;
+  padding: 9px;
+  border-radius: 6px;
+  margin-top: -15px;
 }
 </style>
