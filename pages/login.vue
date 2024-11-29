@@ -122,7 +122,7 @@ import { useAuthStore } from '~/store/auth';
 
 
 const { authenticateUser } = useAuthStore(); // use auth store
-const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive
+const { authenticated, isBusinessRegistered } = storeToRefs(useAuthStore()); // make authenticated state reactive
 
 
 const router = useRouter();
@@ -205,9 +205,11 @@ const handleSubmit = async () => {
 
      await authenticateUser({email: formData.email, password: formData.password});
           // redirect to homepage if user is authenticated
-     if (authenticated) {
+     if (authenticated && isBusinessRegistered) {
          router.push('/');
-     };
+     }else if(authenticated && !isBusinessRegistered){
+         router.push('register-biz');ß
+     }
 
     // Handle successful login
     // You might want to use useRouter() here to redirect

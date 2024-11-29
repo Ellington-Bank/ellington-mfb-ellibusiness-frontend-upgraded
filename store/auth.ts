@@ -10,7 +10,9 @@ export const useAuthStore = defineStore('auth', {
     authenticated: false,
     loading: false,
     userDetails: null,
-    profile: null
+    profile: null,
+    userId: null,
+    isBusinessRegistered: false
   }),
   actions: {
     async authenticateUser({ email, password }: UserPayloadInterface) {
@@ -33,8 +35,10 @@ export const useAuthStore = defineStore('auth', {
         const token = useCookie('token'); // useCookie new hook in nuxt 3
         token.value = data?.value; // set token to cookie
         this.authenticated = true; // set authenticated  state value to true
+        console.log(data?.value?.profile.userId);
         this.userDetails = data?.value?.profile;
         this.profile = data?.value?.profile;
+        this.userId = data?.value?.profile?.userId
       }
     },
     logUserOut() {
@@ -44,6 +48,10 @@ export const useAuthStore = defineStore('auth', {
     },
     getUserDetails(){
       return this.userDetails;
+    },
+    setBusinssStatus(status: boolean){
+      this.isBusinessRegistered = status;
     }
+
   },
 });

@@ -183,15 +183,22 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from 'vue';
 
+
+
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '~/store/auth';
 
-const { authenticated, profile } = storeToRefs(useAuthStore()); // make authenticated state reactive
+const {setBusinssStatus}  = useAuthStore();
+
+const token: any = useCookie('token');
+console.log(token?.value?.profile?.userId);
+
+const { isBusinessRegistered, userId } = storeToRefs(useAuthStore()); // make authenticated state reactive
 //const { profile } = useAuthStore();
 
 const apiBaseUrl = import.meta.env.VITE_API_URL;
 //console.log("API_BASE_URL",apiBaseUrl);
-console.log(profile);
+console.log(userId);
 
 const formData = reactive({
   businessName: '',
@@ -199,7 +206,8 @@ const formData = reactive({
   country: '',
   businessSize: '',
   isDeveloper: 'no',
-  referralCode: ''
+  referralCode: '',
+  ownerId: token?.value?.profile?.userId
 })
 
 const errors = reactive({
@@ -270,6 +278,7 @@ const handleSubmit = async () => {
       });
 
       if(data.value){
+         setBusinssStatus(true);
          alert("Business successfuly registred!");
          navigateTo('login');
       }

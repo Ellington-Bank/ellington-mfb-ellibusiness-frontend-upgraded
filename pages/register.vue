@@ -237,7 +237,7 @@ const handleSubmit = async () => {
     
     // Navigate to next step
     //navigateTo('/login')
-      navigateTo('/register-biz')
+      navigateTo('/login')
     
   } catch (error) {
     console.error('Registration error:', error)
