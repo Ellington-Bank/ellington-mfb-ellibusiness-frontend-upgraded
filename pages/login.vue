@@ -205,10 +205,11 @@ const handleSubmit = async () => {
 
      await authenticateUser({email: formData.email, password: formData.password});
           // redirect to homepage if user is authenticated
-     if (authenticated && isBusinessRegistered) {
+      console.log(isBusinessRegistered)
+     if (authenticated && isBusinessRegistered === true) {
          router.push('/');
-     }else if(authenticated && !isBusinessRegistered){
-         router.push('register-biz');ß
+     }else if(authenticated && isBusinessRegistered !== true){
+         router.push('register-biz');
      }
 
     // Handle successful login
