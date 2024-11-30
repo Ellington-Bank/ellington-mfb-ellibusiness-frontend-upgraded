@@ -28,7 +28,7 @@
                     :class="{ 'has-error': errors.firstName }"
                     @blur="validateField('firstName')"
                   >
-                  <label for="first_name">FIRST NAME</label>
+                  <label for="first_name" :class="{ 'active': formData.firstName }">FIRST NAME</label>
                   <span v-if="errors.firstName" class="error-message">{{ errors.firstName }}</span>
                 </div>
                 <div class="input-field col s12 m6 pad0-right">
@@ -40,7 +40,7 @@
                     :class="{ 'has-error': errors.lastName }"
                     @blur="validateField('lastName')"
                   >
-                  <label for="last_name">LAST NAME</label>
+                  <label for="last_name" :class="{ 'active': formData.lastName }">LAST NAME</label>
                   <span v-if="errors.lastName" class="error-message">{{ errors.lastName }}</span>
                 </div>
               </div>
@@ -53,7 +53,7 @@
                   :class="{ 'has-error': errors.email }"
                   @blur="validateField('email')"
                 >
-                <label for="email">EMAIL</label>
+                <label for="email" :class="{ 'active': formData.email }">EMAIL</label>
                 <span v-if="errors.email" class="error-message">{{ errors.email }}</span>
               </div>
               <div class="input-field col s12 pad0">
@@ -65,8 +65,8 @@
                   :class="{ 'has-error': errors.email }"
                   @blur="validateField('phoneNumber')"
                 >
-                <label for="email">PHONE NUMBER</label>
-                <span v-if="errors.email" class="error-message">{{ errors.phoneNumber }}</span>
+                <label for="phoneNumber" :class="{ 'active': formData.phoneNumber }">PHONE NUMBER</label>
+                <span v-if="errors.phoneNumber" class="error-message">{{ errors.phoneNumber }}</span>
               </div>
               <div class="input-field col s12 pad0">
                 <input 
@@ -77,7 +77,7 @@
                   :class="{ 'has-error': errors.password }"
                   @blur="validateField('password')"
                 >
-                <label for="password">PASSWORD</label>
+                <label for="password" :class="{ 'active': formData.password }">PASSWORD</label>
                 <span class="field-icon toggle-password" @click="togglePassword">
                   <img 
                     src="@/assets/images/opened-eye.svg" 
@@ -103,7 +103,7 @@
                   :class="{ 'has-error': errors.confirmPassword }"
                   @blur="validateField('confirmPassword')"
                 >
-                <label for="confirm-password">CONFIRM PASSWORD</label>
+                <label for="confirm-password" :class="{ 'active': formData.confirmPassword }">CONFIRM PASSWORD</label>
                 <span v-if="errors.confirmPassword" class="error-message">{{ errors.confirmPassword }}</span>
               </div>
               <div class="button-div col s12 pad0">
