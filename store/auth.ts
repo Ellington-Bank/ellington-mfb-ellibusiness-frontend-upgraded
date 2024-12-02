@@ -31,6 +31,7 @@ export const useAuthStore = defineStore('auth', {
      // console.log("data", data.value, data._rawValue, data._rawValue.auth_token)
       this.loading = pending;
 
+      console.log("data.vale", data.value)
       if (data.value) {
         const token = useCookie('token'); // useCookie new hook in nuxt 3
         token.value = data?.value; // set token to cookie
@@ -39,6 +40,7 @@ export const useAuthStore = defineStore('auth', {
         this.userDetails = data?.value?.profile;
         this.profile = data?.value?.profile;
         this.userId = data?.value?.profile?.userId
+        return data.value;
       }
     },
     logUserOut() {
@@ -50,8 +52,21 @@ export const useAuthStore = defineStore('auth', {
       return this.userDetails;
     },
     setBusinssStatus(status: boolean){
+      console.log("STATUS", status)
       this.isBusinessRegistered = status;
-    }
+    },async searchBusiness(email: string){
+      const { data, pending }: any = await useFetch('http://localhost:3006/api/v1/business/SearchBusiness', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: {
+          email
+        },
+      });
 
+      console.log("DV",data.value);
+
+      return data.value;
+
+    }
   },
 });

@@ -121,9 +121,10 @@ import { storeToRefs } from 'pinia';
 import { useAuthStore } from '~/store/auth';
 
 
-const { authenticateUser } = useAuthStore(); // use auth store
-const { authenticated, isBusinessRegistered } = storeToRefs(useAuthStore()); // make authenticated state reactive
+const { authenticateUser, searchBusiness} = useAuthStore(); // use auth store
+const { authenticated, userId, isBusinessRegistered } = storeToRefs(useAuthStore()); // make authenticated state reactive
 
+console.log("UID", userId);
 
 const router = useRouter();
 
@@ -202,11 +203,11 @@ const handleSubmit = async () => {
       rememberMe: formData.rememberMe
     })
     
-
      await authenticateUser({email: formData.email, password: formData.password});
-          // redirect to homepage if user is authenticated
-      console.log(isBusinessRegistered)
-     if (authenticated && isBusinessRegistered === true) {
+     const resp = await searchBusiness(formData.email);
+     console.log("RESP...",authenticated, resp.length)
+     console.log(authenticateUser)
+     if (authenticated && resp.length > 0) {
          router.push('/');
      }else if(authenticated && isBusinessRegistered !== true){
          router.push('register-biz');
@@ -223,6 +224,10 @@ const handleSubmit = async () => {
     isSubmitting.value = false
   }
 }
+
+
+
+
 </script>
 
 <style scoped>
